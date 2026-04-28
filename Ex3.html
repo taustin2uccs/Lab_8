@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>D3 Example 3- Basic Bar Chart</title>
+    
+    <!-- Load the D3 library here -->
+    <script src="https://d3js.org/d3.v4.js" charset="utf-8"></script>
+</head>
+<body>
+    
+<script>
+    // Our D3 code will go here.
+    var popData = [ 40, 80, 120, 100 ]; // Data used for the bar chart
+
+    // Width and height of SVG
+    var w = 300;
+    var h = 350;
+
+    //Create SVG element
+    var svg = d3.select("body")
+        .append("svg")
+        .attr("width", w)
+        .attr("height", h);
+
+    // Select and generate rectangle elements
+    svg.selectAll( "rect" )
+        .data( popData )
+        .enter()
+        .append("rect")
+        .attr( "x", function(d,i){
+            return i*50 + 30; // Set x coordinate of rectangle to index of data value (i)*25.
+            // Add 30 to account for our left margin.
+        })
+        .attr( "y", function(d){
+            return h - d; // Set y coordinate for each bar to height minus the data value
+        })
+        .attr( "width", 40 )
+        .attr( "height", function(d){
+            return d; // Set height of rectangle to data value
+        })
+        .attr( "fill", "steelblue");
+</script>
+
+    
+    
+</body>
+</html>

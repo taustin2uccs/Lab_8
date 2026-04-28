@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>D3 Example 2- Apply height of rectangles from array data</title>
+    
+    <!-- Load the D3 library here -->
+    <script src="https://d3js.org/d3.v4.js" charset="utf-8"></script>
+</head>
+
+
+<body>
+    <!-- Page elements and content go here. -->
+    <svg width="320" height="360">
+        <rect x="30" width="40" fill="steelblue"></rect>
+        <rect x="75" width="40" fill="steelblue"></rect>
+        <rect x="120" width="40" fill="steelblue"></rect>
+        <rect x="165" width="40" fill="steelblue"></rect>
+    </svg>
+
+    <script>
+        //  D3 code starts 
+
+        var popData = [ 40, 80, 120, 100 ]; // Array with graph data
+
+        d3.selectAll( "rect" ) // select all rectangle elements
+            .data( popData )
+            .attr( "height", function(d){ // assign the data to the attribute height
+                return d;
+            });
+        
+    </script>
+
+</body>
+</html>
